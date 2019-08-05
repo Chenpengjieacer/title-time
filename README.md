@@ -1,29 +1,19 @@
 # my-little-time
 
-## Project setup
+## 安装node modules 依赖 package.json
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 启动项目
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### production 上线打包
 ```
 npm run build
 ```
-
-### Run your tests
-```
-npm run test
+### 安装过得npm 介绍
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
