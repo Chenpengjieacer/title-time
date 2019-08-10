@@ -1,12 +1,27 @@
 <template>
   <div>
-    <h1>首页</h1>
+    <Headers />
+    <Sort />
+    <Youlove />
+
+    <Marginbot />
   </div>
 </template>
 
 <script>
-export default {
+import Headers from './common/header'
+import Sort from './common/sort'
+import Youlove from './common/youlove'
 
+import Marginbot from './common/marginbot'
+export default {
+  components:{
+    Headers,
+    Sort,
+    Youlove,
+
+    Marginbot
+  }
 }
 </script>
 
