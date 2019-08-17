@@ -15,11 +15,7 @@ const actions = {
 }
 
 export default {
-<<<<<<< HEAD
   namespaced: true,
-=======
-  namespeced: true,
->>>>>>> remotes/origin/luhans
   state,
   getters,
   mutations,
