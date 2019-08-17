@@ -19,7 +19,7 @@
           <h3>小时光带你一起发现周边美好小店~</h3>
           <p>这里有最热门的城市无论你想去哪。。。。。。。。。。。。。。。</p>
           <div class="anmo">
-            <div><span>查看更多</span></div>
+            <div><router-link to="/goodshop"><span>查看更多</span></router-link></div>
           </div>
         </div>
       </div>
@@ -116,7 +116,9 @@ export default {
             line-height: 30px;
             border-radius: 10px;
             color: #fff;
-
+            span{
+              color:#000;
+            }
           }
         }
       }

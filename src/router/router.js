@@ -43,9 +43,24 @@ const router = new VueRouter({
       ]
     },
     {
-      path: "/login",
+      path: "/login", //登录页
       component: () => import("../views/login/index")
     },
+    {
+      path: "/goodshop", //home > 查看更多 好点-深圳
+      component: () => import('../views/homes/home/goodshop')
+    },
+    {
+      path: "/togo", //home > 分类 > 想去的地方 > 全部想去的用户
+      component: () => import('../components/wanttogo/')
+    },
+    {
+      path: "/eatbar",  //home > 分类 > 餐吧
+      component: () => import('../views/homes/home/eatbar')
+    },
+
+
+
 
     {
       path: "*",

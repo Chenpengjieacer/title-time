@@ -7,12 +7,14 @@
     <div class="rightround">
       <span class="sp1"></span>
       <span class="sp2"></span>
-      <span class="sp3"><span>...</span></span>
+      <span class="sp3"><router-link to="/togo"><span>...</span></router-link></span>
     </div>
     <div class="imgs">
       <ul>
         <li v-for="(int,index) in 4" :key="index">
+          <a href="/eatbar">
           <img src="" alt="">
+          </a>
           <span>餐吧</span>
         </li>
       </ul>
@@ -79,11 +81,13 @@ export default {
       background: #fff;
       position: absolute;
       right: 10px;
+      color: #000;
 
       span{
         display: inline-block;
         font-size: 24px;
         margin-left: 10px;
+         color: #000;
       }
     }
   }

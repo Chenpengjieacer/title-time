@@ -132,6 +132,11 @@ table {
   border-spacing: 0;
 }
 
+html, body, #app{
+  height: 96%;
+  width: 100%;
+}
+
 @font-face {
   font-family: "iconfont";
   src: url('//at.alicdn.com/t/font_1328235_zwoersglcwa.eot?t=1564991664814');
