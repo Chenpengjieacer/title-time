@@ -4,7 +4,6 @@
   active-color="#87CEFA"
   inactive-color="#708090"
    route>
-
   <van-tabbar-item to="/">
     <span>首页</span>
     <img

@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+// 引入精选的子路由
+import Chosen from './chose/index'
+
+
 Vue.use(VueRouter)
 
 /* webpackChunkName: "about" */  //在懒加载import内可以重命名懒加载 可忽略
@@ -18,7 +22,7 @@ const router = new VueRouter({
           meta: {
             requireLogin: true
           }
-         },
+        },
         {
           path: "chosen",
           component: () => import("../views/homes/chosen/index"),
