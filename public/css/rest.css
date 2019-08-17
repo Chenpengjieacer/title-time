@@ -1,0 +1,16 @@
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select,header,footer,nav,article,aside{
+	margin:0;padding:0
+}
+html,body,#app{
+    width: 100%;
+    height: 100%;
+}
+h1,h2,h3,h4,h5,h6,b,strong{
+	font-weight:normal;	
+}
+i,em{
+	font-style:normal;	
+}
+img{
+	border:0;	
+}
