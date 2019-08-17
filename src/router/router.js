@@ -18,7 +18,7 @@ const router = new VueRouter({
           meta: {
             requireLogin: true
           }
-        },
+         },
         {
           path: "chosen",
           component: () => import("../views/homes/chosen/index"),
@@ -27,12 +27,24 @@ const router = new VueRouter({
           }
         },
         {
-          path: "life",
-          component: () => import("../views/homes/life/index"),
+          path: "/life",
+          component: () => import("../views/homes/life/index/index")   ,
+          // children:[
+          //   {
+          //     path:"TuijianDetail",
+          //     component:() => import("../views/homes/life/TuijianMore/TuijianDetail"),
+          //   }
+          // ],
           meta: {
             requireLogin: true
           }
+
         },
+        {
+          path:"/life/FujinDetail",
+          component:() => import("../views/homes/life/FujinMore/FujinDetail"),
+        },
+
         {
           path: "my",
           component: () => import("../views/homes/my/index"),

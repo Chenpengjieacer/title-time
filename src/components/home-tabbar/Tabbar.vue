@@ -4,6 +4,7 @@
   active-color="#87CEFA"
   inactive-color="#708090"
    route>
+
   <van-tabbar-item to="/">
     <span>首页</span>
     <img
@@ -51,15 +52,16 @@
 
 <script>
 export default {
-    data() {
+  data() {
     return {
       active: 0,
         icon: {
         normal: '',
-        active: ''
+        active: '',
+        zhanshi:true
       }
     }
-  }
+  },
 }
 </script>
 
