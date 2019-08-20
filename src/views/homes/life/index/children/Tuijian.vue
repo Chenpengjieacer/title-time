@@ -16,7 +16,7 @@
                        <p>{{item.p2}}</p>
                     </div>
                 </div>
-                </router-link>
+                <!-- </router-link> -->
             </div>
             <!-- <router-view></router-view> -->
 
