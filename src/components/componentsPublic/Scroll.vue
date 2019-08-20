@@ -11,14 +11,23 @@
 import BScroll from "better-scroll";
 export default {
   name: "scroll-com",
+
+
   mounted() {
-    new BScroll(this.$refs.scroll, {
+   let scroll = this.scroll =new BScroll(this.$refs.scroll, {
       click: true,
       tap: true
       // scrollX: true,
       // scrollY: false
     });
-  }
+       scroll.on('beforeScrollStart', ()=>{
+            scroll.refresh();
+            console.log(123)
+        })
+  },
+
+
+
 };
 </script>
 

@@ -4,15 +4,15 @@
   <div class="nav">探店-深圳 <img src="../../../../../public/images/fdj.png"/></div>
   <app-scroll class="content">
     <div>
-    
+
     <Tuijian></Tuijian>
     <Fujin></Fujin>
-    <Goodshop></Goodshop> 
-   
+    <Goodshop></Goodshop>
+
     </div>
     <router-view></router-view>
   </app-scroll>
- 
+
 </div>
 
 </template>
@@ -31,7 +31,7 @@ import FujinDetail from '../FujinMore/FujinDetail'
 export default {
   data(){
     return {
-      
+
     }
   },
   components:{
@@ -41,8 +41,8 @@ export default {
     FujinDetail,
     TuijianDetail,
 
-  }, 
-  
+  },
+
 }
 </script>
 

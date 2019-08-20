@@ -1,4 +1,5 @@
 <template>
+    <scroll-com class="scrollwarpa">
   <div class="shop-center">
     <ul class="shopul">
       <li class="shopli" v-for="(item,index) in 5" :key="index">
@@ -11,6 +12,7 @@
       </li>
     </ul>
   </div>
+    </scroll-com>
 </template>
 
 <script>
@@ -20,13 +22,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+ .scrollwarpa{
+    position: fixed;
+    width: 100%;
+    top: 40px;
+    bottom: 0;
+  }
 .shop-center{
   margin-top: 45px;
 
   .shopul{
     width: 100%;
     height: 100%;
-    background-color: rgba(198, 197, 197, 1);
+
     text-align: center;
     box-sizing: border-box;
     padding-top: 20px;
@@ -37,7 +45,7 @@ export default {
     height: 250px;
     line-height: 20px;
     border-radius: 10px;
-    background-color: rgba(248, 248, 248, 1);
+    background-color: rgba(255, 255, 255, 1);
     text-align: center;
     box-shadow: 0px 1px 3px 0px rgba(170, 170, 170, 1);
     border: 1px solid rgba(255, 255, 255, 0);

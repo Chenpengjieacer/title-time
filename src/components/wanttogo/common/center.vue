@@ -22,7 +22,7 @@ export default {
 .togo{
   width: 100%;
   margin-top: 45px;
-  background-color: rgba(198, 197, 197, 1);
+
 
   ul{
     width: 100%;

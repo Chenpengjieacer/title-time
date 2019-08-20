@@ -4,6 +4,7 @@
   fixed
   left-arrow
   @click-left="onClickLeft"
+  id="vanhear"
 />
 </template>
 
@@ -19,5 +20,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+#vanhear{
+  background:#fdb43f;
+  color: #fdb43f;
+}
 </style>

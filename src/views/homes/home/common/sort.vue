@@ -11,11 +11,11 @@
     </div>
     <div class="imgs">
       <ul>
-        <li v-for="(int,index) in 4" :key="index">
+        <li v-for="int in imgs" :key="int.id">
           <a href="/eatbar">
-          <img src="" alt="">
+          <img src="./images/s2.png" alt="">
           </a>
-          <span>餐吧</span>
+          <span>{{int.name}}</span>
         </li>
       </ul>
     </div>
@@ -27,14 +27,26 @@
 
 <script>
 export default {
-
+  data(){
+    return{
+      imgs:[
+        {id:1,img:'./s1.png',name:'餐吧'},
+        {id:2,img:'./s2.png',name:'旅社'},
+        {id:3,img:'./s3.png',name:'生活馆'},
+        {id:4,img:'./s4.png',name:'花房'},
+      ]
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .sort{
-  width: 100%;
+  width: 92%;
+  margin:0 15px;
   height: 260px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 0px 0.5px #ededed;
   .text{
     height: 18px;
     margin: 5px 10px;

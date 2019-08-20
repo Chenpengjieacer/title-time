@@ -6,13 +6,14 @@ Vuex.Store.prototype.$http = http; //封装 aixos 原型链调用 仓库全局�
 
 Vue.use(Vuex)
 
- //测试仓库样本 按此样本写入样式 后续可删
+
 import list from './list/list'
+import login from './login/index'
 const store = new Vuex.Store({
   modules: {
     //仓库小模块
-     //测试仓库样本 按此样本写入样式 后续可删
-    list
+    list,
+    login
   }
 });
 

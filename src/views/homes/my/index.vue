@@ -10,18 +10,44 @@
     <div class="my-bot">
       <div class="ulbox">
         <ul>
-          <li v-for="(item,index) in 6" :key="index">
+          <li v-for="(item,index) in datalist" :key="index">
             <span></span>
-            <router-link to="/login" ><p>123</p></router-link>
+            <router-link :to="item.path" ><p>{{item.name}}</p></router-link>
           </li>
         </ul>
       </div>
     </div>
+     <router-view></router-view>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data(){
+    return{
+      datalist:[
+        {id:1,name:'美好生活PASS卡',path:'/'},
+        {id:2,name:'发布小店',path:'/'},
+        {id:3,name:'我的订单',path:'/'},
+        {id:4,name:'收藏',path:'/'},
+        {id:5,name:'意见反馈',path:'/'},
+        {id:6,name:'设置',path:'/my/setting'},
+      ]
+    }
+  },
+  methods:{
+    // outlogin(){
+    //   localStorage.removeItem('user')
+    // }
+  },
+
+  mounted(){
+    //   this.$http('home/mine/orderlist/')
+    // .then(res => {
+    //   console.log(res)
+    // })
+  }
+};
 </script>
 
 <style lang="scss" scoped>

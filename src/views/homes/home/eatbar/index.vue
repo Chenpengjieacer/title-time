@@ -1,7 +1,9 @@
 <template>
   <div>
     <Header />
+    <scroll-com class="scrollwarp">
     <center />
+    </scroll-com>
   </div>
 </template>
 
@@ -17,5 +19,10 @@ export default {
 </script>
 
 <style>
-
+.scrollwarp{
+    position: fixed;
+    width: 100%;
+    top: 40px;
+    bottom: 0;
+}
 </style>

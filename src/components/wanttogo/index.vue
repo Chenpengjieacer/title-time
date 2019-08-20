@@ -1,7 +1,9 @@
 <template>
   <div class="wantogo">
     <Header />
+    <scroll-com class="scrollwarp">
     <Center />
+    </scroll-com>
   </div>
 </template>
 
@@ -20,5 +22,12 @@ export default {
 .wantogo{
   width: 100%;
   height: 100%;
+
+  .scrollwarp{
+     position: fixed;
+    width: 100%;
+    top: 40px;
+    bottom: 0;
+  }
 }
 </style>

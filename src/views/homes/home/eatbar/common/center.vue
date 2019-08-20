@@ -45,7 +45,7 @@ export default {
 .eatcenter{
   margin-top: 45px;
   width: 100%;
-  background: #ccc;
+
 
   ul{
     width: 100%;

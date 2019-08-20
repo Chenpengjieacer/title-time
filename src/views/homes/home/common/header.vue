@@ -1,18 +1,18 @@
 <template>
   <div id="hearders">
-    <div class="city">
-      <span class="city-span"><i class="iconfont icon-zuobiaofill"></i></span>
-      <p class="city-p">深圳</p>
-    </div>
+
     <div class="topbox">
-      <div class="imgs"><img src="" alt="">图片</div>
+      <div class="imgs"><img src="" alt=""></div>
       <div class="bgcolor"></div>
       <div class="positiondiv">
         <div class="postop">
+          <h2 class="postoph2">推荐热门城市</h2>
           <ul>
-            <li class="ulli">北京</li>
-            <li class="ulli">重庆</li>
-            <li class="ulli">深圳</li>
+            <li class="ulli" v-for="item in todos" :key='item.id'>
+              <img src="./images/t1.png" alt="">
+              <p>{{item.name}}</p>
+            </li>
+
           </ul>
         </div>
         <div class="postext">
@@ -29,7 +29,15 @@
 
 <script>
 export default {
-
+    data(){
+      return{
+        todos:[
+          {id:1,imga:'./images/t1.png',name:'北京'},
+          {id:2,imga:"./images/t2.png",name:'重庆'},
+          {id:3,imga:"./images/t3.png",name:'深圳'},
+        ]
+      }
+    }
 }
 </script>
 
@@ -37,23 +45,7 @@ export default {
 #hearders{
   width: 100%;
   height: 340px;
-  .city{
-    padding: 10px;
-    box-sizing: border-box;
-    height: 5%;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    background-color: #fff;
-    .city-span{
 
-    }
-    .city-p{
-      display: inline-block;
-    }
-  }
 
   .topbox{
     height: 80%;
@@ -61,20 +53,20 @@ export default {
     position: relative;
     .imgs{
       height: 100px;
-      background-color: #F5F5F5;
+
       text-align: center;
       line-height: 100px;
     }
     .bgcolor{
       height: 200px;
-      background-color: #A9A9A9 ;
+      background-color: #ffffff ;
     }
     .positiondiv{
       width: 90%;
-      height: 200px;
+      height: 280px;
       position: absolute;
       left: 5%;
-      bottom: 0;
+      bottom: -55px;
       border: 1px solid #fff;
       border-radius: 10px;
       background-color: #fff;
@@ -82,17 +74,24 @@ export default {
 
       .postop{
         height: 40%;
+        .postoph2{
+          margin: 10px 0 20px 10px;
+        }
         ul{
          display: flex;
          height: 100%;
          text-align: center;
           .ulli{
             flex: 1;
+            img{
+              width: 60px;
+            }
           }
         }
       }
       .postext{
         text-align: center;
+        margin-top: 20px;
         h3{
           font-size: 16px;
           font-weight: 500;

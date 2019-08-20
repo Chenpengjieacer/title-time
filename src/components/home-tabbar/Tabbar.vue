@@ -1,7 +1,7 @@
 <template>
   <div class="foot">
   <van-tabbar v-model="active"
-  active-color="#87CEFA"
+  active-color="#fdb43f "
   inactive-color="#708090"
    route>
   <van-tabbar-item to="/">

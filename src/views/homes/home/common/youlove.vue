@@ -4,7 +4,7 @@
       <div class="imgs">
         <ul>
           <li v-for="(item,index) in 4" :key="index">
-            <img src="" alt="">
+            <img src="https://dummyimage.com/160x160/fdb43f&text=Hello" alt="">
             <div class="imgbot">
             <p>在无酒弹酒馆，与chaplin共享静默时光</p>
             <span>chaplin chaplin bar</span>
@@ -24,8 +24,11 @@ export default {
 
 <style lang="scss" scoped>
 .youlove{
-  height: 550px;
-  width: 100%;
+    height: 650px;
+    width: 94%;
+    border-radius: 10px;
+    box-shadow: 0px 1px 0px 0.5px #ededed;
+    margin: 10px 10px;
 
   .lovetext{
     height: 40px;
@@ -37,18 +40,18 @@ export default {
     }
   }
   .imgs{
-    height: 300px;
+    height: 100%;
     width: 100%;
     ul{
-    height: 510px;
+    height: 90%;
     width: 100%;
 
       li{
         width: 50%;
-        height: 200px;
+        height: 240px;
         display: inline-block;
         text-align: center;
-        margin-bottom: 50px;
+        margin-bottom: 60px;
         background: #fff;
 
         img{
@@ -60,7 +63,7 @@ export default {
         }
         .imgbot{
           width: 90%;
-          height: 80px;
+          height: 100px;
           background-color: #FFFAF0;
           display: inline-block;
           line-height: 20px;

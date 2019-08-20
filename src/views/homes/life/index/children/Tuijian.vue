@@ -2,24 +2,24 @@
 <template>
 <div>
 
-    <div class="tuijian"> 
-      
+    <div class="tuijian">
+
         <div class="r_title">推荐</div>
-        
+
             <div class="c_inner">
-                <router-link to="/life/TuijianDetail">
-                <div class="list" v-for="item in items" :key=item.id>     
+                <!-- <router-link to="/life/TuijianDetail"> -->
+                <div class="list" v-for="item in items" :key=item.id>
                     <div class="top"><img :src="item.img"></div>
                     <div class="l_bottom">
                        <h4>{{item.h4}}</h4>
                        <p>{{item.p}}</p>
-                       <p>{{item.p2}}</p> 
+                       <p>{{item.p2}}</p>
                     </div>
                 </div>
                 </router-link>
             </div>
-            <router-view></router-view>
-           
+            <!-- <router-view></router-view> -->
+
     </div>
 
 </div>
@@ -34,10 +34,10 @@ export default {
             {id:1,img:"https://dummyimage.com/286x147/4A7BF7&text=Hello",h4:"倾听纸张的故事",p:'敬人自语',p2:"666人想去"},
             {id:2,img:"https://dummyimage.com/286x147/4A7BF7&text=Hello",h4:"倾听纸张的故事",p:'敬人自语',p2:"666人想去"},
             {id:3,img:"https://dummyimage.com/286x147/4A7BF7&text=Hello",h4:"倾听纸张的故事",p:'敬人自语',p2:"666人想去"},
-                  
+
         ]}
     },
- 
+
 
 }
 </script>
@@ -51,7 +51,7 @@ export default {
 .c_inner{
     width: 100%;
     height: 146px;
-    display: flex; 
+    display: flex;
 
 
 }
@@ -68,7 +68,7 @@ export default {
 }
 .tuijian{
     width: 100%;
-} 
+}
 .top img{
     width:129px;
     height: 65px;
@@ -77,7 +77,7 @@ export default {
 .l_bottom{
     font-size: 14px;
     color:rgba(16,16,16,1);
-    
+
 }
 .l_bottom h4{
    margin:12px 0 0 16px;
@@ -87,7 +87,7 @@ export default {
     color:rgba(117,116,116,1);
     font-size: 12px;
     line-height: 20px;
-    margin-left:16px;  
+    margin-left:16px;
 }
 .list{
     flex-shrink: 1;
@@ -107,6 +107,6 @@ export default {
     box-sizing: border-box;
     font-family: PingFangSC-regular;
     color: rgba(16, 16, 16, 1);
-} 
+}
 
 </style>

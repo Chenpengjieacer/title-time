@@ -4,6 +4,7 @@
   fixed
   left-arrow
   @click-left="onClickLeft"
+  id="heardcolor"
 />
 </template>
 
@@ -19,5 +20,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+#heardcolor{
+  background: #fdb43f
+}
 </style>

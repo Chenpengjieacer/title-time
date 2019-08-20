@@ -4,6 +4,8 @@
   fixed
   left-arrow
   @click-left="onClickLeft"
+
+  id="footbar"
 />
 </template>
 
@@ -19,5 +21,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#footbar{
+  background: #fdb43f;
 
+}
 </style>

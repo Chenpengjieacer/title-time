@@ -28,11 +28,12 @@ const router = new VueRouter({
           component: () => import("../views/homes/chosen/index"),
           meta: {
             requireLogin: true
-          }
+          },
+          children: Chosen
         },
         {
           path: "/life",
-          component: () => import("../views/homes/life/index/index")   ,
+          component: () => import("../views/homes/life/index/index"),
           // children:[
           //   {
           //     path:"TuijianDetail",
@@ -42,11 +43,13 @@ const router = new VueRouter({
           meta: {
             requireLogin: true
           }
-
         },
         {
-          path:"/life/FujinDetail",
-          component:() => import("../views/homes/life/FujinMore/FujinDetail"),
+          path: "/life/FujinDetail",
+          component: () => import("../views/homes/life/FujinMore/FujinDetail"),
+          meta: {
+            requireLogin: true
+          }
         },
 
         {
@@ -54,7 +57,16 @@ const router = new VueRouter({
           component: () => import("../views/homes/my/index"),
           meta: {
             requireLogin: true
-          }
+          },
+          children: [
+            {
+              path: "setting",
+              component: () => import("../views/homes/my/chidren/setting.vue"),
+              meta: {
+                requireLogin: true
+              }
+            }
+          ]
         }
       ]
     },
@@ -64,19 +76,25 @@ const router = new VueRouter({
     },
     {
       path: "/goodshop", //home > 查看更多 好点-深圳
-      component: () => import('../views/homes/home/goodshop')
+      component: () => import("../views/homes/home/goodshop"),
+      meta: {
+        requireLogin: true
+      }
     },
     {
       path: "/togo", //home > 分类 > 想去的地方 > 全部想去的用户
-      component: () => import('../components/wanttogo/')
+      component: () => import("../components/wanttogo/"),
+      meta: {
+        requireLogin: true
+      }
     },
     {
-      path: "/eatbar",  //home > 分类 > 餐吧
-      component: () => import('../views/homes/home/eatbar')
+      path: "/eatbar", //home > 分类 > 餐吧
+      component: () => import("../views/homes/home/eatbar"),
+      meta: {
+        requireLogin: true
+      }
     },
-
-
-
 
     {
       path: "*",
@@ -85,21 +103,21 @@ const router = new VueRouter({
   ]
 });
 // 全局守卫设置
-// router.beforeEach((to,from,next) => {
-//   if(to.meta.requireLogin){
-//     if (window.localStorage.getItem("userInfo")) {
-//       next();
-//     } else {
-//       next({
-//         path: "/login",
-//         query: {
-//           redirect: to.fullPath
-//         }
-//       });
-//     }
-//   }else{
-//     next()
-//   }
-// })
+      router.beforeEach((to,from,next) => {
+        if(to.meta.requireLogin){
+          if (localStorage.getItem('user','userinfo')) {
+            next();
+          } else {
+            next({
+              path: "/login",
+              query: {
+                redirect: to.fullPath
+              }
+            });
+          }
+        }else{
+          next()
+        }
+      })
 
 export default router;

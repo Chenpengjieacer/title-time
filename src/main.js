@@ -3,8 +3,13 @@ import App from './App.vue'
 import router from './router/router'//引入 路由
 import store from './store/store' //引入vuex 仓库
 import './styles/rest.css' //引入全局css样式
-// import './utils/rem' //引入 页面css 字体大小 使用各种大小移动端 自动转换对应px 上线后使用
+import './utils/rem' //引入 页面css 字体大小 使用各种大小移动端 自动转换对应px 上线后使用
 import AppScroll from './components/app-scroll'
+
+//引入UI组件 element 全局使用----------------------------------------------
+import ElementUI from "element-ui";
+import "element-ui/lib/theme-chalk/index.css";
+Vue.use(ElementUI);
 
 //引入UI组件 vant 全局使用----------------------------------------------
 import Vant from 'vant';
@@ -22,7 +27,7 @@ import SwiperItem from './components/componentsPublic/swiperitem.vue'
 
 
 //全局使用封装好的公共组件--------------------------------------------------------------
-Vue.component(BScroll.name, BScroll)
+Vue.component(BScroll.name, BScroll)   // <scroll-com>
 Vue.component(Swiper.name, Swiper)
 Vue.component(SwiperItem.name, SwiperItem)
 

@@ -1,7 +1,9 @@
 <template>
   <div class="gshop">
     <Header />
+
     <Center />
+
   </div>
 </template>
 
@@ -16,9 +18,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .gshop{
-  width: 100%;
-  height: 100%;
+
+
 }
-</style>
+

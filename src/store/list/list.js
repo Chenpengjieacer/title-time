@@ -12,7 +12,7 @@ const mutations = {
       img: item.img[0],
       sres: item.sres
     }));
-    console.log(data)
+
     state.list = data;
   }
 };
@@ -20,7 +20,7 @@ const mutations = {
 const actions = {
   addlistaction({ state, commit }) {
     this.$http.get("/list").then(res => {
-      console.log(res.data.slice(0,20));
+
       let str = res.data.slice(0, 20);
       commit("addlist",str);
     });

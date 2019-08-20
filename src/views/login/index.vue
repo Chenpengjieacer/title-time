@@ -1,20 +1,39 @@
 <template>
   <div id="login">
     <div class="top">
-      <div>图片</div>
+      <div>
+        <img src="./images/logo.png" alt />
+      </div>
     </div>
     <div class="bot">
       <div class="bot-number">
         <div class="number-phone">
           <span class="phone-sp1">+86</span>
-          <input class="phone-inp" type="text" placeholder="输入手机号" />
+          <input class="phone-inp" type="text" placeholder="输入手机号" v-model="inpval" @change="fn1" />
+          <div class="isdiv" v-show="isphone">
+            <span>手机号码格式错误</span>
+          </div>
+          <div class="isdiv" v-if="isphoneif === true">
+            <span>手机号不能为空</span>
+          </div>
         </div>
         <div class="phone-abc">
-          <input type="text" placeholder="输入验证码" />
+          <input type="text" placeholder="输入验证码" v-model="numcode" @keyup="iskey" />
         </div>
-        <div class="phone-abcbut">59m</div>
-        <router-link to="/">
-          <button class="phone-login">登录</button>
+
+        <div class="phone-abcbut">
+          <span v-show="show" @click="getCode">获取验证码</span>
+          <span v-show="!show" class="count">{{count}}秒重发</span>
+        </div>
+        <div class="abcisdiv" v-show="iscode">
+          <span>验证码错误</span>
+        </div>
+        <div class="abcisdiv" v-if="iscodeif === true">
+          <span>验证码不能为空</span>
+        </div>
+
+        <router-link :to="qqq ? '/' : ''">
+          <button class="phone-login" @click="fn2">登录</button>
         </router-link>
       </div>
       <div class="warp">
@@ -27,7 +46,138 @@
 </template>
 
 <script>
-export default {};
+import { setTimeout } from "timers";
+import { mapState, mapMutations, mapActions, mapGetters } from "vuex";
+import { watch } from 'fs';
+export default {
+  data() {
+    return {
+      qqq: false,
+      show: true,
+      count: "",
+      timer: null,
+      inpval: "",
+      isphone: false,
+      isphoneif: false,
+
+
+      iscode: false,
+      iscodeif: false,
+      numcode: "",
+
+      iphone: false,
+      iphone2: false
+    };
+  },
+  computed: {
+    ...mapState("login", ["num"]), //获取仓库验证码值
+    ...mapState('login',['oker']),
+
+  },
+  methods: {
+    iskey(e){
+      if(e.keyCode === 8){
+        this.iscode = false
+      }
+    },
+    ...mapActions("login", ["getphone"]), //派发请求事件
+     ...mapActions('login',['setpass']),
+    getCode() {
+      this.fn1(); // 手机号码 input value  的  @change
+      if (this.iphone === true) {
+        //如果 手机号码规则没问题
+        this.getphone(this.inpval); // 触发 派发事件 把手机号码传参过去
+
+        const TIME_COUNT = 60;
+        if (!this.timer) {
+          this.count = TIME_COUNT;
+          this.show = false;
+          this.timer = setInterval(() => {
+            //计时器 up
+            if (this.count > 0 && this.count <= TIME_COUNT) {
+              this.count--;
+            } else {
+              this.show = true;
+              clearInterval(this.timer);
+              this.timer = null;
+            }
+            if (this.count === 58) {
+              let str = this.$store.state.login.num;
+              this.$toast("验证码为:" + str); //弹窗显示 验证码
+            }
+          }, 1000); //计时器 down
+        }
+      }
+    },
+
+    fn1() {
+      // 手机号码 input value  的  @change
+      const reg = /^1[3|4|5|7|8][0-9]\d{8}$/;
+      if (this.inpval === "") {
+        this.isphone = false;
+        this.isphoneif = true;
+      } else if (!reg.test(this.inpval)) {
+        this.isphone = true;
+        this.isphoneif = false;
+      } else {
+        this.isphone = false;
+        this.isphoneif = false;
+        this.iphone = true;
+      }
+    },
+    fn2() {
+      let datas = {
+        val:this.inpval,
+        num:this.numcode
+      }
+
+      // 登录的 @click
+      const reg = /^\d{4}$/; //正则表达式 验证码
+      if (this.numcode === "") {
+        this.iscode = false;
+        this.iscodeif = true;
+      } else if (!reg.test(this.numcode)) {
+        this.iscode = true;
+        this.iscodeif = false;
+      } else {
+        this.iscode = false; //判断input value 开关
+        this.iscodeif = false;
+        this.iphone2 = true;
+      }
+
+      if (this.iphone === true && this.iphone2 === true) {
+           this.setpass(datas)
+      }
+
+       let str = this.$store.state.login.num;
+       if(str !== this.numcode){
+          this.iscode = true
+       }else{
+         this.iscode = false
+       }
+      if (this.inpval === "") {
+        //如果手机号码value为空 则提示报错
+        this.isphone = false;
+        this.isphoneif = true;
+      }
+    }
+  },
+  watch:{
+    oker(){
+          localStorage.setItem("user",'userinfo')
+
+
+        this.$router.replace('/')
+        this.$store.state.login.oker = false
+
+    }
+  },
+
+  mounted(){
+
+  }
+
+};
 </script>
 
 <style lang="scss" scoped>
@@ -36,7 +186,7 @@ export default {};
   top: 20px;
   height: 665px;
   line-height: 20px;
-  background-color: rgba(198, 197, 197, 1);
+  background-color: #fdb43f;
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0);
 
@@ -48,6 +198,9 @@ export default {};
     height: 86px;
     border-radius: 10px;
     background: #ededed;
+    img {
+      width: 100%;
+    }
   }
   .bot {
     display: inline-block;
@@ -96,6 +249,16 @@ export default {};
           border: none;
           background: #f8f8f8;
         }
+        .isdiv {
+          position: relative;
+          span {
+            font-size: 12px;
+            position: absolute;
+            top: -10px;
+            left: 83px;
+            color: red;
+          }
+        }
       }
       .phone-abc {
         width: 187px;
@@ -106,6 +269,7 @@ export default {};
         border: 1px solid rgba(255, 255, 255, 0);
         margin-left: 17px;
         float: left;
+        margin-top: 10px;
         input {
           border: none;
           height: 43px;
@@ -122,7 +286,20 @@ export default {};
         border: 1px solid rgba(255, 255, 255, 0);
         float: left;
         margin-left: 19px;
+        margin-top: 10px;
+        .count {
+          color: #ccc;
+        }
       }
+
+      .abcisdiv {
+        height: 20px;
+        span {
+          font-size: 12px;
+          color: red;
+        }
+      }
+
       .phone-login {
         width: 288px;
         height: 43px;
