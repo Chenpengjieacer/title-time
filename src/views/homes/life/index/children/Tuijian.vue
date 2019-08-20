@@ -7,7 +7,7 @@
         <div class="r_title">推荐</div>
         
             <div class="c_inner">
-                <router-link to="/life/TuijianDetail">
+                <!-- <router-link to="/life/TuijianDetail"> -->
                 <div class="list" v-for="item in items" :key=item.id>     
                     <div class="top"><img :src="item.img"></div>
                     <div class="l_bottom">
@@ -16,7 +16,7 @@
                        <p>{{item.p2}}</p> 
                     </div>
                 </div>
-                </router-link>
+                <!-- </router-link> -->
             </div>
             <router-view></router-view>
            

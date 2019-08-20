@@ -101,6 +101,7 @@ export default {
       this.$router.push("/chosen/copy/222");
     }
   },
+  created() {},
   // 调用banner图
   mounted() {
     new Swiper(".swiper-container", {

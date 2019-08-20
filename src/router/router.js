@@ -28,11 +28,12 @@ const router = new VueRouter({
           component: () => import("../views/homes/chosen/index"),
           meta: {
             requireLogin: true
-          }
+          },
+          children: Chosen
         },
         {
           path: "/life",
-          component: () => import("../views/homes/life/index/index")   ,
+          component: () => import("../views/homes/life/index/index"),
           // children:[
           //   {
           //     path:"TuijianDetail",
@@ -45,8 +46,8 @@ const router = new VueRouter({
 
         },
         {
-          path:"/life/FujinDetail",
-          component:() => import("../views/homes/life/FujinMore/FujinDetail"),
+          path: "/life/FujinDetail",
+          component: () => import("../views/homes/life/FujinMore/FujinDetail"),
         },
 
         {
