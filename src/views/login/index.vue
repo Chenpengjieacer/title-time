@@ -160,16 +160,14 @@ export default {
         this.isphone = false;
         this.isphoneif = true;
       }
+
     }
   },
   watch:{
     oker(){
-          localStorage.setItem("user",'userinfo')
-
-
+       if(this.oker === true){
         this.$router.replace('/')
-        this.$store.state.login.oker = false
-
+      }
     }
   },
 

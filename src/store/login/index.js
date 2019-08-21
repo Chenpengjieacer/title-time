@@ -1,5 +1,6 @@
 import { stringify } from "querystring";
 
+// import Cookie from "js-cookie"
 const state = {
   num:'',
   oker:false,
@@ -12,16 +13,17 @@ const getters = {
 };
 
 const mutations = {
-    addnum(state,val){
-      state.num = val
-    },
-    addoker(state,val){
-      state.oker = val
+  addnum(state, val) {
+    state.num = val;
+  },
+  addoker(state) {
+    state.oker = true;
 
-    },
-    addno(state){
-      state.noer = false
-    }
+  },
+  addno(state) {
+    state.noer = false;
+  },
+
 };
 
 const actions = {
@@ -29,10 +31,6 @@ const actions = {
     let  data = {"phone":phone}
     this.$http
       .post("/home/getcode/", stringify(data), {
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-
       })
       .then(res => {
         if (res.code === 0) {
@@ -46,21 +44,19 @@ const actions = {
     let data = {"phone":val.val,"code":val.num}
       this.$http
         .post("/home/login/", stringify(data), {
-          HOST:"http://47.94.250.146",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          },
-
         })
         .then(res => {
           if (res.code === 0) {
-            let str = true;
-            commit("addoker", str);
+            commit("addoker");
+            localStorage.setItem("token", res.token);
+            localStorage.setItem("phone", val.val);
+
           } else {
             console.log("手机或者验证码错误");
           }
         });
-  }
+  },
+
 };
 
 export default {

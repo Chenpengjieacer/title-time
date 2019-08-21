@@ -8,19 +8,19 @@ module.exports = {
     }
   },
 
-  // lintOnSave: true,
-  // css: {
-  //   loaderOptions: {
-  //     postcss: {
-  //       plugins: [
-  //         require("postcss-pxtorem")({
-  //           rootValue: 16,
-  //           selectorBlackList: ["weui", "mu"], // 忽略转换正则匹配项
-  //           propList: ["*"]
-  //         })
-  //       ]
-  //     }
-  //   }
-  // }
+  lintOnSave: true,
+  css: {
+    loaderOptions: {
+      postcss: {
+        plugins: [
+          require("postcss-pxtorem")({
+            rootValue: 16,
+            selectorBlackList: ["weui", "mu"], // 忽略转换正则匹配项
+            propList: ["*"]
+          })
+        ]
+      }
+    }
+  }
         //上线时 px 转化 rem 配置
 };

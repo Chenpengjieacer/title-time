@@ -38,6 +38,7 @@
 </template>
 
 <script>
+
 export default {
   data(){
     return{
@@ -55,7 +56,8 @@ export default {
     },
 
     outs(){
-      localStorage.removeItem('user')
+      localStorage.removeItem('phone')
+      localStorage.removeItem('token')
       this.$router.push({path:'/login'})
     }
 

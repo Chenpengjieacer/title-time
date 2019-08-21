@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 
 // 引入精选的子路由
 import Chosen from './chose/index'
-
+import store from "../store/store";
 
 Vue.use(VueRouter)
 
@@ -105,9 +105,10 @@ const router = new VueRouter({
 // 全局守卫设置
       router.beforeEach((to,from,next) => {
         if(to.meta.requireLogin){
-          if (localStorage.getItem('user','userinfo')) {
+          if ( localStorage.getItem('token') ) {
             next();
           } else {
+
             next({
               path: "/login",
               query: {
@@ -117,7 +118,19 @@ const router = new VueRouter({
           }
         }else{
           next()
+        };
+
+        if(to.fullPath == "/login"){
+          if(localStorage.getItem("token")){
+            next({
+              path:from.fullPath
+            });
+          };
+        }else{
+          next()
         }
+
+
       })
 
 export default router;

@@ -1,7 +1,7 @@
 <template>
   <div>
     <Heartop />
-    <scroll-com class="scrollwarp">
+    <scroll-com class="scrollwarp" >
     <Headers />
 
     <Sort />
@@ -28,11 +28,11 @@ export default {
   },
 
   mounted(){
-        this.$http.get('/mine/orderlist/').then(res=>{
-          console.log(res)
-        });
+    this.$http.get('/mine/orderlist/')
+    .then(res => {
+      console.log(res)
 
-
+    })
   }
 }
 </script>
