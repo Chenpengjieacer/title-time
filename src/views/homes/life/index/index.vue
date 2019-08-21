@@ -1,7 +1,7 @@
 
 <template>
 <div class="life">
-  <div class="nav">探店-深圳 <img src="../../../../../public/images/fdj.png"/></div>
+  <div class="nav">探店-深圳 </div>
   <app-scroll class="content">
     <div>
     
@@ -25,8 +25,9 @@ Vue.use(PullRefresh);
 import Tuijian from './children/Tuijian'
 import Fujin from './children/Fujin'
 import Goodshop from './children/Goodshop'
-import TuijianDetail from '../FujinMore/FujinDetail'
 import FujinDetail from '../FujinMore/FujinDetail'
+import TuijianDetail from '../TuijianMore/TuijianDetail'
+
 
 export default {
   data(){
@@ -75,10 +76,8 @@ export default {
   position: fixed;
   top:44px;
   bottom:49px;
-  background: #dddddd;
-  background-color: rgba(198, 197, 197,1);
+  background: linear-gradient(#FF9900,#fdb43f);
   border: 1px solid rgba(225 225 225 0);
 }
-
 
 </style>

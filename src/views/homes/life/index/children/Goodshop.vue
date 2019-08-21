@@ -2,7 +2,7 @@
     <div class="Good">
         <div class="r_title">好店</div> 
         <!-- <div class="img"></div> -->
-        <div class="position"><img src="https://dummyimage.com/286x147/4A7BF7&text=Hello"></div>
+        <div class="position"><img src="../../../../../../public/images/life_3.jpg"></div>
         <div class="content"></div>
         <div class="loading">查看更多</div>
     </div>
@@ -32,7 +32,7 @@ export default {
     padding-left: 10px;
     box-sizing: border-box;
     font-family: PingFangSC-regular;
-    color: rgba(16, 16, 16, 1);
+    color: #fff;
 } 
 .position{
     width: 225px;

@@ -2,76 +2,45 @@
 
    
     <div class="FujinDetail">
-        <div class="nav"><div class="return" @click="prev()">返回</div> 探店-深圳 </div> 
-
-        <div class="containner">
-
-            <app-scroll class="content">
-            <div class="detail" >
-                <div class="d_wrap">
-                    <div class="title">
-                        <h2>七彩云南，半夏味道</h2>
-                        <p>宝安区一半夏云南味道</p>
-                    </div>
-                    <div class="center">
-                        <div><img src="https://dummyimage.com/286x147/4A7BF7&text=Hello"/></div>
-                        <div><img src="https://dummyimage.com/286x147/4A7BF7&text=Hello"/></div>
-                        <div><img src="https://dummyimage.com/286x147/4A7BF7&text=Hello"/></div>
-                    </div>
-                    <div class="border"></div>
-                    <div class="xjgh" @click="Action()"><img src="../../../../../public/images/xjgh.png"/></div>
-                    </div>
-                    <div class="yincang" v-if="show"><div>$</div><div>$</div><div>$</div>
-                    <div>$</div><div>$</div>
-                </div> 
-            </div>
-
-
-            <div class="detail" >
-                <div class="d_wrap">
-                    <div class="title">
-                        <h2>七彩云南，半夏味道</h2>
-                        <p>宝安区一半夏云南味道</p>
-                    </div>
-                    <div class="center">
-                        <div><img src="https://dummyimage.com/286x147/4A7BF7&text=Hello"/></div>
-                        <div><img src="https://dummyimage.com/286x147/4A7BF7&text=Hello"/></div>
-                        <div><img src="https://dummyimage.com/286x147/4A7BF7&text=Hello"/></div>
-                    </div>
-                    <div class="border"></div>
-                    <div class="xjgh" @click="Action()"><img src="../../../../../public/images/xjgh.png"/></div>
-                    </div>
-                    <div class="yincang" v-if="show"><div>$</div><div>$</div><div>$</div>
-                    <div>$</div><div>$</div>
-                </div> 
-            </div>
-
-            <div class="detail" >
-                <div class="d_wrap">
-                    <div class="title">
-                        <h2>七彩云南，半夏味道</h2>
-                        <p>宝安区一半夏云南味道</p>
-                    </div>
-                    <div class="center">
-                        <div><img src="https://dummyimage.com/286x147/4A7BF7&text=Hello"/></div>
-                        <div><img src="https://dummyimage.com/286x147/4A7BF7&text=Hello"/></div>
-                        <div><img src="https://dummyimage.com/286x147/4A7BF7&text=Hello"/></div>
-                    </div>
-                    <div class="border"></div>
-                    <div class="xjgh" @click="Action()"><img src="../../../../../public/images/xjgh.png"/></div>
-                    </div>
-                    <div class="yincang" v-if="show"><div>$</div><div>$</div><div>$</div>
-                    <div>$</div><div>$</div>
-                </div> 
-            </div>
-
-            </app-scroll>
+        <div class="nav">
+            <div class="font" @click="prev()">
+                <span>返回</span>
+            </div> 
+            <div>探店-深圳</div> 
+            <div>&nbsp;&nbsp;</div>         
         </div>
-       
 
+    <div class="containner">
+        <div class="content">
+            <div class="detail" v-for="(item,index) in items" :key="item.id" >
+                <div class="d_wrap">
+                    <div class="title">
+                        <h2>七彩云南，半夏味道</h2>
+                        <p>宝安区一半夏云南味道</p>
+                    </div>
+
+                    <div class="center">
+                        <div><img :src="item.img1"/></div>
+                        <div><img :src="item.img2"/></div>
+                        <div><img :src="item.img3"/></div>
+                    </div>
+
+                    <div class="border"></div>
+                    <div class="xjgh" @click="toggle(item.id,index)">点击</div>
+                </div>
+
+                    <div class="yincang" v-if="show">
+                        <div>$</div>
+                        <div>$</div>
+                        <div>$</div>
+                        <div>$</div>
+                        <div>$</div>                    
+                    </div> 
+            </div>
+        </div>
+    </div>  
     </div>
-
-    
+ 
 
 </template>
 
@@ -80,15 +49,21 @@ export default {
     data(){
         return{
             show:false,
-            detail:[
-                {id:1,h2:"七彩云南，半夏味道",p:"宝安区一半夏云南味道",img:"https://dummyimage.com/286x147/4A7BF7&text=Hello"},
+            items:[
+                {id:1,h2:"七彩云南，半夏味道",p:"宝安区一半夏云南味道",img1:"/images/tandian_1.jpg",img2:"/images/tandian_2.jpg",img3:"/images/tandian_3.jpg",show:true,},
+                {id:2,h2:"七彩云南，半夏味道",p:"宝安区一半夏云南味道",img1:"/images/tandian_4.jpg",img2:"/images/tandian_5.jpg",img3:"/images/tandian_6.jpg",show:true,},
+                {id:3,h2:"七彩云南，半夏味道",p:"宝安区一半夏云南味道",img1:"/images/tandian_1.jpg",img2:"/images/tandian_2.jpg",img3:"/images/tandian_3.jpg",show:true,},
             ]
         }
     },
     methods:{
-        Action(){
+        // if(index){
+             toggle(id,index){      
             this.show=!this.show      
+            console.log(id)
+            // }         
         },
+             
         prev(){
             this.$router.go(-1)
         }
@@ -97,27 +72,29 @@ export default {
 </script>
 
 <style scoped>
-
+.content{
+    overflow:scroll;
+    background: linear-gradient(#FF9900,#fdb43f);
+    margin-bottom: 50px;
+}
 .FujinDetail{
     width: 100%;
     height:100%;
     display: flex;
-    background: rgb(246,165,0);
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position:absolute;
     left: 0;
     top:0;
-
 }
 .nav{
     width:100%;
     height:44px;
-    display: flex;
     font-size: 17px;
     opacity: 1;
-    justify-content: center;
+    display: flex;
+    justify-content:space-between;
     align-items: center;
     position:absolute;
     top: 0;
@@ -126,10 +103,14 @@ export default {
     background: #fff;
     font-family: SFUIText-regular;
 }
+.font span{
+    display: flex;
+
+}
 .return{
-  width: 40px;
-  background: chartreuse;
-  height: 100%;
+    width: 40px;
+    background: chartreuse;
+    height: 100%;
 }
 .containner{
     width: 100%;
@@ -138,7 +119,6 @@ export default {
     left: 0;
     display:flex;
     justify-content: center;
-
 }
 .detail{   
     margin-top:20px;
@@ -156,17 +136,14 @@ export default {
     height: auto;
     background: #fff;
     border-radius: 10px;
-    border: 1px solid rgba(187, 187, 187, 1);
-   
-    box-sizing: border-box;
-   
+    border: 1px solid rgba(187, 187, 187, 1);  
+    box-sizing: border-box;  
 }
 .title{
     width: 100%;
     height:auto;
     box-sizing: border-box;
     padding:13px 0 0 17px;
-
 }
 .title p{
     color: rgba(16, 16, 16, 1);
@@ -187,8 +164,7 @@ export default {
     display: flex;
     justify-content:space-between;
     box-sizing: border-box;
-    padding:0 17px;
-    
+    padding:0 17px;   
 }
 .center div{
     display: flex;
@@ -207,21 +183,18 @@ export default {
 .border{
     height: 1px;
     background: black;
-    margin-top: 15px;
-    
+    margin-top: 15px;   
 }
 .xjgh{
     width: 100%;
     height:auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    
+    align-items: center;    
 }
 .xjgh img{
     margin:10px 0;
 }
-
 .yincang{
     width: 300px;
     height: 50px;
@@ -233,6 +206,5 @@ export default {
     display: flex;
     justify-content:space-around;
     align-items: center;
-
 }
 </style>

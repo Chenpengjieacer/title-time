@@ -28,13 +28,7 @@ const router = new VueRouter({
         },
         {
           path: "/life",
-          component: () => import("../views/homes/life/index/index")   ,   
-          // children:[
-          //   {
-          //     path:"TuijianDetail",
-          //     component:() => import("../views/homes/life/TuijianMore/TuijianDetail"),
-          //   }
-          // ],
+          component: () => import("../views/homes/life/index/index"),   
           meta: {
             requireLogin: true
           }
@@ -43,8 +37,18 @@ const router = new VueRouter({
         {
           path:"/life/FujinDetail",
           component:() => import("../views/homes/life/FujinMore/FujinDetail"),
+          meta: {
+            requireLogin: true
+          }
         },
-        
+        {
+          path:"/life/TuijianDetail",
+          component:() => import("../views/homes/life/TuijianMore/TuijianDetail"),
+          meta: {
+            requireLogin: true
+          }
+        },   
+
         {
           path: "my",
           component: () => import("../views/homes/my/index"),

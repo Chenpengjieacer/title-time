@@ -32,7 +32,6 @@
       slot-scope="props"
       :src="props.active ? icon.active : icon.normal"
       class="iconfont icon-huabanfuben"
-
     >
   </van-tabbar-item >
 
